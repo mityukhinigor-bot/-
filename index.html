@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+
+<body>
+<div id="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">My App</a>
+            <div class="navbar-nav">
+                <a class="nav-link active" id="indexLink" href="#" onclick="openPage('indexPage')">Главная</a>
+                <a class="nav-link" id="registerLink" href="#" onclick="openPage('registerPage')">Регистрация</a>
+                <a class="nav-link" id="loginLink" href="#" onclick="openPage('loginPage')">Войти</a>
+                <a class="nav-link" id="profileLink" href="#" onclick="openPage('profilePage')">Профиль</a>
+                <a class="nav-link" id="createPostLink" href="#" onclick="openPage('createPostPage')">Создать пост</a>
+                <a class="nav-link" id="logoutLink" href="#" onclick="logout(event)">Выйти</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container py-5">
+        <div id="message" class="alert" role="status" hidden></div>
+        <div id="indexPage">
+            <div class="row"></div>
+        </div>
+        <div id="registerPage">
+            <h1>Регистрация</h1>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerName">Имя</label>
+                    <input type="text" class="form-control" id="registerName" placeholder="Введите имя" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerLogin">Логин</label>
+                    <input type="text" class="form-control" id="registerLogin" placeholder="Введите логин" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">Пароль</label>
+                    <input type="password" class="form-control" id="registerPassword" placeholder="Введите пароль" required>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Зарегистрироваться</button>
+            </form>
+        </div>
+        <div id="loginPage">
+            <h1>Вход</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginLogin">Логин</label>
+                    <input type="text" class="form-control" id="loginLogin" placeholder="Введите логин" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Пароль</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Введите пароль" required>
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Войти</button>
+            </form>
+        </div>
+        <div id="postPage"></div>
+        <div id ="createPostPage">
+            <h2 class="mb-4">Создание поста</h2>
+
+            <form id="createPostForm">
+                <div class="mb-3">
+                    <label class="form-label">Название поста</label>
+                    <input type="text" class="form-control" id="postName" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Текст поста</label>
+                    <textarea class="form-control" rows="10" id="postText" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Изображение</label>
+                    <input type="file" class="form-control" id="postImage" accept=".png,.jpg,.jpeg,image/png,image/jpeg" required>
+                </div>
+                <button type="submit" class="btn btn-success mt-4">Создать пост</button>
+            </form>
+        </div>
+        <div id="profilePage">
+            <h2 class="mb-4" id="profileGreeting">Добро пожаловать, username!</h2>
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Название поста</th>
+                            <th>Дата создания</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="myPosts"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./script.js"></script>
+</body>
+
+</html>
